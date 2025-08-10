@@ -140,6 +140,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-sm) 0;
+  position: relative;
 }
 
 .logo {
@@ -429,11 +430,22 @@ p {
   line-height: 1.6;
 }
 
+.service-card li {
+  list-style: none;
+}
+
 /* Modern Footer */
 .modern-footer {
   background: var(--secondary-color);
   color: var(--white);
   padding: var(--spacing-xxl) 0 var(--spacing-lg);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
 }
 
 .footer-content {
@@ -446,6 +458,10 @@ p {
 .footer-section h4 {
   color: var(--accent-color);
   margin-bottom: var(--spacing-md);
+}
+
+.footer-section li {
+  list-style: none;
 }
 
 .footer-section p,
@@ -479,11 +495,36 @@ p {
 /* Responsive Design */
 
 /* Tablet Styles */
-@media (max-width: 1024px) {
-  .container {
-    padding: 0 var(--spacing-lg);
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Keep desktop navigation visible */
+  .mobile-menu-btn {
+    display: none;
   }
   
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  
+  .emergency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+  
+  /* Tablet Typography */
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  /* Tablet Layout - Keep it simple */
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -492,8 +533,13 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .hero h1 {
-    font-size: 3rem;
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Tablet spacing */
+  .container {
+    padding: 0 var(--spacing-md);
   }
 }
 
@@ -513,9 +559,12 @@ p {
     background: var(--white);
     box-shadow: var(--shadow-lg);
     flex-direction: column;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
     border-radius: 0 0 var(--radius-md) var(--radius-md);
     z-index: 1000;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: var(--spacing-md);
   }
   
   .nav-links.active {
@@ -524,7 +573,7 @@ p {
   
   .nav-links li {
     margin: 0;
-    padding: var(--spacing-sm) 0;
+    padding: 0;
     border-bottom: 1px solid var(--light-gray);
   }
   
@@ -534,10 +583,17 @@ p {
   
   .nav-links a {
     display: block;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
     color: var(--dark);
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: left;
+    transition: var(--transition-fast);
+  }
+  
+  .nav-links a:hover {
+    background: var(--light-gray);
+    color: var(--primary-color);
   }
   
   .emergency-btn {
@@ -623,6 +679,40 @@ p {
     padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl) !important;
   }
   
+  /* Mobile Contact Page */
+  .contact-item {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: var(--spacing-sm) !important;
+    padding: var(--spacing-md) !important;
+  }
+  
+  .contact-item > div:first-child {
+    margin: 0 auto !important;
+  }
+  
+  /* Mobile Form */
+  form {
+    padding: var(--spacing-md) !important;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    padding: var(--spacing-md) !important;
+    font-size: 1rem !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  form label {
+    font-size: 1rem !important;
+    margin-bottom: var(--spacing-sm) !important;
+  }
+  
+  form textarea {
+    min-height: 120px !important;
+  }
+  
   /* Mobile Footer */
   .footer-content {
     grid-template-columns: 1fr;
@@ -659,7 +749,7 @@ p {
   }
   
   .service-card {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-lg);
   }
   
   .stat-number {
@@ -668,6 +758,30 @@ p {
   
   .section-header h2 {
     font-size: 1.5rem;
+  }
+  
+  /* Small Mobile Contact Page */
+  .contact-item {
+    padding: var(--spacing-xs) !important;
+  }
+  
+  .contact-item strong {
+    font-size: 0.9rem !important;
+  }
+  
+  .contact-item p {
+    font-size: 0.8rem !important;
+  }
+  
+  form {
+    padding: var(--spacing-sm) !important;
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    padding: var(--spacing-sm) !important;
+    font-size: 0.9rem !important;
   }
 }
 
